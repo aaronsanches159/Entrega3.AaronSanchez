@@ -8,316 +8,57 @@
 </head>
 <body>
 
-    <header>
-        <h1 class="namePag">DELIVERTYDO</h1>
-        <div class="container">
-            
-            <div class="container-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                  </svg>
-                  <div class="container-num">
-                    <span class="container-quantity">0</span>
-                  </div>
-            </div>
-
-            <div class="container-cart-products hidden-cart">
-                <div class="row-product hidden">
-                    <div class="cart-product">
-                        <div class="info-cart-product">
-                            <!-- <span class="cantidad-producto-carrito">1</span>
-                            <p class="titulo-producto-carrito">pizza/p>
-                            <span class="precio-producto-carrito">$50</span> -->
-                        </div>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            class="icon-close"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M6 18L18 6M6 6l12 12"
-                            />
-                        </svg>
-                    </div>
-                </div>
-
-                <div class="cart-total hidden">
-                    <h3>Total:</h3>
-                    <span class="total-pagar">$200</span>
-                </div>
-                <p class="cart-empty">El carrito está vacío</p>
-            </div>
-
+    <div class="formulario">
+        <div class="cajabienvenida">
+            <h1 class="bienvenida">¡Bienvenido a DELIVERTYDO!</h1>
+            <p class="datos">Proporcione sus datos para hacer el pedido</p>
         </div>
-    </header>
-
-
-    <main>
-
-        <section class="secComidas">
-            <div class="cajaTitulo">
-                <h2 class="tituloPastas">PASTAS!</h2>
-            </div>
-            <div class="container-items">
-                <div class="card">
-                    <figure>
-                        <img src="./img/main-header.avif" alt="">
-                    </figure>
-
-                    <div class="textCard">
-                        <h3>Penne Rigate</h3>
-                        <p class="price">1000</p>
-                        <button type="button" class="btn-add-cart">Pedir</button>
-                    </div>
+        <form id="userForm">
+            <div class="caja">
+                <div class="nombre">
+                    <input type="text" id="nombre">
+                    <label for="nombre">Nombre</label>
                 </div>
 
-                <div class="card">
-                    <figure>
-                        <img src="./img/Receta-tagliatelle-nido-bolonesa_1419468083_114036678_1200x675.jpg" alt="">
-                    </figure>
-
-                    <div class="textCard">
-                        <h3>Tagliatonne</h3>
-                        <p class="price">1000</p>
-                        <button type="button" class="btn-add-cart">Pedir</button>
-                    </div>
+                <div class="apellido">
+                    <input type="text" id="apellido">
+                    <label for="apellido">Apellido</label>
                 </div>
 
-                <div class="card">
-                    <figure>
-                        <img src="./img/ravioles_22512_orig.jpg" alt="">
-                    </figure>
-
-                    <div class="textCard">
-                        <h3>Ravioles</h3>
-                        <p class="price">2000</p>
-                        <button type="button" class="btn-add-cart">Pedir</button>
-                    </div>
+                <div class="localidad">
+                    <input type="text" id="localidad">
+                    <label for="localidad">Localidad</label>
                 </div>
 
-                <div class="card">
-                    <figure>
-                        <img src="./img/canelones_de_carne_y_de_verdura_crop1655391645186.jpg_530079780.webp" alt="">
-                    </figure>
+                <div class="direccion">
+                    <input type="text" id="direccion">
+                    <label for="direccion">Direccion</label>
+                </div>
             
-                    <div class="textCard">
-                        <h3>Canelones</h3>
-                        <p class="price">3000</p>
-                        <button type="button" class="btn-add-cart">Pedir</button>
-                    </div>      
+                <div class="Departamento">
+                    <input type="text" id="departamento">
+                    <label for="departamento">Piso/Departamento</label>
+                </div>
 
+                <div class="mail">
+                    <input type="email" id="mail">
+                    <label for="mail">Mail</label>
+                </div>
+
+                <div class="contraseña">
+                    <input type="password" id="contraseña">
+                    <label for="contraseña">Contraseña</label>
+                </div>
+
+                <div class="celular">
+                    <input type="text" id="celular">
+                    <label for="celular">Num Celular</label>
                 </div>
             </div>
-        </div>
 
-        </section>
+            <input type="submit" value="Iniciar">
 
-        <section class="secComidas">
+            <script src="./js/inicio.js"></script>
 
-            <div class="cajaTitulo">
-                <h2 class="tituloPastas">HAMBURGUESAS!</h2>
-            </div>
-            <div class="container-items">
-                <div class="card">
-
-                    <figure>
-                        <img src="./img/onion.jpg" alt="">
-                    </figure>
-
-                    <div class="textCard">
-                        <h3>OnionCheese</h3>
-                        <p class="price">Precio: $1000</p>
-                        <button type="button" class="btn-add-cart">Pedir</button>
-                    </div>
-
-                </div>
-
-                <div class="card">
-                    <figure>
-                        <img src="./img/hamburguesa-grande-queso-tocino_777078-84709.avif" alt="">
-                    </figure>
-
-                    <div class="textCard">
-                        <h3>Monstruosa</h3>
-                        <p class="price">Precio:</p>
-                        <button type="button" class="btn-add-cart">Pedir</button>
-                    </div>
-
-                </div>
-
-                <div class="card">
-                    <figure>
-                        <img src="./img/triplecheese.jpg" alt="">
-                    </figure>
-
-                    <div class="textCard">
-                        <h3>Triple Cheese</h3>
-                        <p class="price">Precio:</p>
-                        <button type="button" class="btn-add-cart">Pedir</button>
-                    </div>
-
-                </div>
-
-                <div class="card">
-                    <figure>
-                        <img src="./img/ParoCardiaco.jpg" alt="">
-                    </figure>
-            
-                    <div class="textCard">
-                        <h3>Paro Cardiaco</h3>
-                        <p class="price">Precio</p>
-                        <button type="button" class="btn-add-cart">Pedir</button>
-                    </div> 
-                    
-
-                </div>
-            </div>
-        </div>
-
-        </section>
-
-        <section class="secComidas">
-
-            <div class="cajaTitulo">
-                <h2 class="tituloPastas">PIZZAS!</h2>
-            </div>
-            <div class="container-items">
-                <div class="card">
-
-                    <figure>
-                        <img src="./img/pizza_de_mozzarella.jpg" alt="">
-                    </figure>
-
-                    <div class="textCard">
-                        <h3>Muzzarela</h3>
-                        <p class="price">Precio: $1000</p>
-                        <button type="button" class="btn-add-car">Pedir</button>
-                    </div>
-                                                               
-                </div>
-
-                <div class="card">
-                    <figure>
-                        <img src="./img/pizza_napolitana_especial.jpg" alt="">
-                    </figure>
-
-                    <div class="textCard">
-                        <h3>napolitana</h3>
-                        <p class="price">1000</p>
-                        <button type="button" class="btn-add-car">Pedir</button>
-                    </div>
-     
-
-                </div>
-
-                <div class="card">
-                    <figure>
-                        <img src="./img/pizza_4_quesos.jpg" alt="">
-                    </figure>
-
-                    <div class="textCard">
-                        <h3>Parmesano</h3>
-                        <p class="price">Precio:</p>
-                        <button type="button" class="btn-add-car">Pedir</button>
-                    </div>
-     
-
-                </div>
-
-                <div class="card">
-                    <figure>
-                        <img src="./img/pizza-de-rucula-con-jamon-crudo-1.jpg.webp" alt="">
-                    </figure>
-            
-                    <div class="textCard">
-                        <h3>Rucula</h3>
-                        <p class="price">Precio</p>
-                        <button type="button" class="btn-add-car">Pedir</button>
-                    </div>   
-
-                </div>
-                </div>
-        </div>
-
-        </section>
-
-        <section class="secComidas">
-
-            <div class="cajaTitulo">
-                <h2 class="tituloPastas">PARRILLA</h2>
-            </div>
-            <div class="container-items">
-                <div class="card">
-
-                    <figure>
-                        <img src="./img/asado.jpg" alt="">
-                    </figure>
-
-                    <div class="textCard">
-                        <h3>Asado</h3>
-                        <p class="price">Precio: $1000</p>
-                        <button type="button" class="btn-add-car">Pedir</button>
-                    </div>
-
-                </div>
-
-                <div class="card">
-                    <figure>
-                        <img src="./img/chinchu.jpg" alt="">
-                    </figure>
-
-                    <div class="textCard">
-                        <h3>Chinchulines</h3>
-                        <p class="price">Precio:</p>
-                        <button type="button" class="btn-add-car">Pedir</button>
-                    </div>          
-
-                </div>
-
-                <div class="card">
-                    <figure>
-                        <img src="./img/chorizos.jpg" alt="">
-                    </figure>
-
-                    <div class="textCard">
-                        <h3>Choripan</h3>
-                        <p class="price">Precio:</p>
-                        <button type="button" class="btn-add-car">Pedir</button>
-                    </div>
-
-                </div>
-
-                <div class="card">
-                    <figure>
-                        <img src="./img/matambre-a-la-pizza-a-la-parrilla-receta-salsa-locosxlaparrilla-1.jpg" alt="">
-                    </figure>
-            
-                    <div class="textCard">
-                        <h3>Matambre a la pizza</h3>
-                        <p class="price">Precio</p>
-                        <button type="button" class="btn-add-car">Pedir</button>
-                    </div>
-                 
-
-                </div>
-                </div>
-        </div>
-
-        </section>
-
-    </main>
-
-
-    <footer>
-        
-    </footer>
-
-    <script src="./js/main.js"></script>
-    
-</body>
-</html>
+        </form>
+    </div>
