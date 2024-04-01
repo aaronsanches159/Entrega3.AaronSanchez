@@ -22,7 +22,15 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
 	localStorage.setItem('mail', mail);
 	localStorage.setItem('contraseña', contraseña);
 	localStorage.setItem('celular', celular);
+});
 
-	// redireccionar al usuario a otro HTML
-	window.location.href = 'main.html';
+
+document.getElementById('userForm').addEventListener('submit', function(event) {
+	event.preventDefault();
+
+	document.getElementById('loader').classList.remove('hidden');
+
+	setTimeout(function() {
+		window.location.href = 'main.html';
+	}, 1000); 
 });
