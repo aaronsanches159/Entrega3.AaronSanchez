@@ -2,35 +2,53 @@
 
 document.getElementById('userForm').addEventListener('submit', function(event) {
 	event.preventDefault(); 
+	if (validarFormulario()) {
+		// valores del formulario
+		var nombre = document.getElementById('nombre').value;
+		var apellido = document.getElementById('apellido').value;
+		var localidad = document.getElementById('localidad').value;
+		var direccion = document.getElementById('direccion').value;
+		var departamento = document.getElementById('departamento').value;
+		var mail = document.getElementById('mail').value;
+		var celular = document.getElementById('celular').value;
 
-	// valores del formulario
-	var nombre = document.getElementById('nombre').value;
-	var apellido = document.getElementById('apellido').value;
-	var localidad = document.getElementById('localidad').value;
-	var direccion = document.getElementById('direccion').value;
-	var departamento = document.getElementById('departamento').value;
-	var mail = document.getElementById('mail').value;
-	var contraseña = document.getElementById('contraseña').value;
-	var celular = document.getElementById('celular').value;
+		// datos en el almacenamiento local
+		localStorage.setItem('nombre', nombre);
+		localStorage.setItem('apellido', apellido);
+		localStorage.setItem('localidad', localidad);
+		localStorage.setItem('direccion', direccion);
+		localStorage.setItem('departamento', departamento);
+		localStorage.setItem('mail', mail);
+		localStorage.setItem('celular', celular);
 
-	// datos en el almacenamiento local
-	localStorage.setItem('nombre', nombre);
-	localStorage.setItem('apellido', apellido);
-	localStorage.setItem('localidad', localidad);
-	localStorage.setItem('direccion', direccion);
-	localStorage.setItem('departamento', departamento);
-	localStorage.setItem('mail', mail);
-	localStorage.setItem('contraseña', contraseña);
-	localStorage.setItem('celular', celular);
+		// Continuar con el loader solo si la validación del formulario es exitosa
+		document.getElementById('loader').classList.remove('hidden');
+
+		setTimeout(function() {
+			window.location.href = 'main.html';
+		}, 1000); 
+	}
 });
 
+function validarFormulario() {
+	var campos = document.querySelectorAll('#userForm input[type="text"], #userForm input[type="email"], #userForm input[type="password"]');
+	for (var i = 0; i < campos.length; i++) {
+		if (campos[i].value.trim() === '') {
+			mostrarAviso('Por favor, complete todos los campos.');
+			return false;
+		}
+	}
+	return true;
+}
 
-document.getElementById('userForm').addEventListener('submit', function(event) {
-	event.preventDefault();
+function mostrarAviso(mensaje) {
+	var avisoElement = document.createElement('div');
+	avisoElement.className = 'aviso';
+	avisoElement.textContent = mensaje;
 
-	document.getElementById('loader').classList.remove('hidden');
+	var avisoContainer = document.getElementById('avisoContainer');
 
-	setTimeout(function() {
-		window.location.href = 'main.html';
-	}, 1000); 
-});
+	avisoContainer.innerHTML = '';
+
+	avisoContainer.appendChild(avisoElement);
+}

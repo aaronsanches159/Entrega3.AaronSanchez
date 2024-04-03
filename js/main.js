@@ -1,54 +1,43 @@
 // Icono de tienda:
 const btnCart = document.querySelector('.container-icon');
 const containerCartProducts = document.querySelector('.container-cart-products');
+const btnPagar = document.querySelector('.btn-pagar')
 
 btnCart.addEventListener('click', () => {
     containerCartProducts.classList.toggle('hidden-cart');
 });
 
-const comidas = [
-    {
-        pastasMenu: [
-            { nombre: "Penne Rigate", precio: 1200, imagen: "./img/main-header.avif"},
-            { nombre: "Tagliatonne", precio: 1600, imagen: "./img/Receta-tagliatelle-nido-bolonesa_1419468083_114036678_1200x675.jpg"},
-            { nombre: "Ravioles", precio: 2000, imagen:"./img/ravioles_22512_orig.jpg"},
-            { nombre: "Canelones", precio: 2500, imagen:"./img/canelones_de_carne_y_de_verdura_crop1655391645186.jpg_530079780.webp"}
-        ]
-    },
-    {
-        pizzaMenu: [
-            { nombre: "Muzzarela", precio: 3000, imagen: "./img/pizza_de_mozzarella.jpg"},
-            { nombre: "Napolitana", precio: 3100, imagen: "./img/pizza_napolitana_especial.jpg"},
-            { nombre: "Parmesano", precio: 3600, imagen:"./img/pizza_4_quesos.jpg"},
-            { nombre: "Rucula", precio: 3100, imagen:"./img/pizza-de-rucula-con-jamon-crudo-1.jpg.webp"}
-        ]
-    },
-    {
-        hamburguesaMenu: [
-            { nombre: "Onion Cheese", precio: 4200, imagen: "./img/onion.jpg"},
-            { nombre: "Monstruosa", precio: 7200, imagen: "./img/hamburguesa-grande-queso-tocino_777078-84709.avif"},
-            { nombre: "Triple Cheese", precio: 4600, imagen:"./img/triplecheese.jpg"},
-            { nombre: "Paro cardiaco", precio: 5500, imagen:"./img/ParoCardiaco.jpg"}
-        ]
-    },
-    {
-        carneMenu: [
-            { nombre: "Asado", precio: 4000, imagen: "./img/asado.jpg"},
-            { nombre: "Chinchulines", precio: 1500, imagen: "./img/chinchu.jpg" },
-            { nombre: "Choripan", precio: 2300, imagen:"./img/chorizos.jpg"},
-            { nombre: "Matambre a la pizza", precio: 5000, imagen:"./img/matambre-a-la-pizza-a-la-parrilla-receta-salsa-locosxlaparrilla-1.jpg"}
-        ]
-    },
-	{
-		bebidasMenu: [
-		{ nombre: "Coca-Cola", precio: 1100, imagen: "./img/2.webp"},
-		{ nombre: "Fanta", precio: 1000, imagen: "./img/c00b72_e2bf95e004124aafb4debc97a8d6d02e~mv2.webp"},
-		{ nombre: "Sprite", precio: 1100, imagen: "./img/download.jpg"},
-		{ nombre: "Paso de los toros", precio: 1000, imagen: "./img/Paso-de-los-Toros-pomelo-350-V-L.jpg"}
-		]
-	}
-	
-];
+// JSON para el array de objetos:
+function obtenerDatos() {
+    return new Promise((resolve, reject) => {
+        fetch('json/comidas.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al obtener los datos');
+                }
+                return response.json();
+            })
+            .then(data => {
+                resolve(data);
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
+}
+
+obtenerDatos()
+    .then((comidas) => {
+        comidas.forEach(categoria => {
+            Object.values(categoria).forEach(menu => {
+                pintarProductos(menu);
+            });
+        });
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+
 
 // Array para el carrito
 let allProducts = [];
@@ -76,11 +65,6 @@ function pintarProductos(menu) {
     });
 }
 
-comidas.forEach(categoria => {
-    Object.values(categoria).forEach(menu => {
-        pintarProductos(menu, Object.keys(categoria)[0]);
-    });
-});
 
 // Event listener para agregar productos al carrito
 document.addEventListener('click', (e) => {
@@ -97,9 +81,9 @@ document.addEventListener('click', (e) => {
 
         const existIndex = allProducts.findIndex((product) => product.title === producto.title);
         if (existIndex !== -1) {
-            allProducts[existIndex].quantity++; // Incrementamos la cantidad del producto existente
+            allProducts[existIndex].quantity++; // Incremente la cantidad del producto existente
         } else {
-            allProducts.push(producto); // Agregamos el producto al carrito
+            allProducts.push(producto); // Agregue el producto al carrito
         }
 
         showHTML();
@@ -116,8 +100,8 @@ document.addEventListener('click', (e) => {
         // Filtrar el producto a eliminar del arreglo allProducts
         allProducts = allProducts.filter(product => product.title !== title);
 
-        showHTML(); // Actualizar la interfaz de usuario
-        guardarProductosEnLocalStorage(); // Guardar en el Local Storage
+        showHTML();
+        guardarProductosEnLocalStorage(); 
     }
 });
 
@@ -139,7 +123,7 @@ const showHTML = () => {
         cartTotal.classList.remove('hidden');
     }
     
-    rowProduct.innerHTML = ""; // Limpiar el contenido existente
+    rowProduct.innerHTML = ""; 
 
     let total = 0;
     let totalProductos = 0;
@@ -174,7 +158,7 @@ const showHTML = () => {
             </svg>
         `;
 
-        rowProduct.append(containerProductos); // Agregar al carrito
+        rowProduct.append(containerProductos); 
     });
 
     valorTotal.innerHTML = `$${total}`;
@@ -192,8 +176,33 @@ const cargarProductosDesdeLocalStorage = () => {
     const productosGuardados = localStorage.getItem('carritoProductos');
     if (productosGuardados) {
         allProducts = JSON.parse(productosGuardados);
-        showHTML(); // Actualizar la interfaz de usuario con los productos cargados
+        showHTML(); 
     }
 };
 
 document.addEventListener('DOMContentLoaded', cargarProductosDesdeLocalStorage);
+
+// Pedir comida con libreria
+
+btnPagar.addEventListener('click', ()=>{
+    Swal.fire({
+        title: "Tu pedido sera enviado en breve",
+        width: 600,
+        padding: "3em",
+        color: "black",
+        background: "#fff url(/images/trees.png)",
+        backdrop: `
+        rgba(0, 0, 0, 0.37)
+          url("./img/giphy.gif")
+          center top
+          no-repeat
+        `,
+        confirmButtonColor: '#d1914b'
+      }); 
+})
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+[
+    {
+        "pastasMenu": [
+            { "nombre": "Penne Rigate", "precio": 3200, "imagen": "./img/main-header.avif"},
+            { "nombre": "Tagliatonne", "precio": 3500, "imagen": "./img/Receta-tagliatelle-nido-bolonesa_1419468083_114036678_1200x675.jpg"},
+            { "nombre": "Ravioles", "precio": 4000, "imagen":"./img/ravioles_22512_orig.jpg"},
+            { "nombre": "Canelones", "precio": 4000, "imagen":"./img/canelones_de_carne_y_de_verdura_crop1655391645186.jpg_530079780.webp"}
+        ]
+    },
+    {
+        "pizzaMenu": [
+            { "nombre": "Muzzarela", "precio": 5000, "imagen": "./img/pizza_de_mozzarella.jpg"},
+            { "nombre": "Napolitana", "precio": 6000, "imagen": "./img/pizza_napolitana_especial.jpg"},
+            { "nombre": "Parmesano", "precio": 6200, "imagen":"./img/pizza_4_quesos.jpg"},
+            { "nombre": "Rucula", "precio": 6200, "imagen":"./img/pizza-de-rucula-con-jamon-crudo-1.jpg.webp"}
+        ]
+    },
+    {
+        "hamburguesaMenu": [
+            { "nombre": "Onion Cheese", "precio": 7200, "imagen": "./img/onion.jpg"},
+            { "nombre": "Monstruosa", "precio": 8900, "imagen": "./img/hamburguesa-grande-queso-tocino_777078-84709.avif"},
+            { "nombre": "Triple Cheese", "precio": 7800, "imagen":"./img/triplecheese.jpg"},
+            { "nombre": "Paro cardiaco", "precio": 8000, "imagen":"./img/ParoCardiaco.jpg"}
+        ]
+    },
+    {
+        "carneMenu": [
+            { "nombre": "Asado", "precio": 8500, "imagen": "./img/asado.jpg"},
+            { "nombre": "Chinchulines", "precio": 5000, "imagen": "./img/chinchu.jpg" },
+            { "nombre": "Choripan", "precio": 3200, "imagen":"./img/chorizos.jpg"},
+            { "nombre": "Matambre a la pizza", "precio": 9000, "imagen":"./img/matambre-a-la-pizza-a-la-parrilla-receta-salsa-locosxlaparrilla-1.jpg"}
+        ]
+    },
+	{
+		"bebidasMenu": [
+		{ "nombre": "Coca-Cola", "precio": 1200, "imagen": "./img/2.webp"},
+		{ "nombre": "Fanta", "precio": 1200, "imagen": "./img/c00b72_e2bf95e004124aafb4debc97a8d6d02e~mv2.webp"},
+		{ "nombre": "Sprite", "precio": 1200, "imagen": "./img/download.jpg"},
+		{ "nombre": "Paso de los toros", "precio": 1200, "imagen": "./img/Paso-de-los-Toros-pomelo-350-V-L.jpg"}
+		]
+	}
+	
+]

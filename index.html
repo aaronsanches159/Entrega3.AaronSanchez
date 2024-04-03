@@ -14,6 +14,7 @@
             <p class="datos">Proporcione sus datos para hacer el pedido</p>
         </div>
         <form id="userForm">
+            <div id="avisoContainer" class="aviso"></div>
             <div class="caja">
                 <div class="nombre">
                     <input type="text" id="nombre">
@@ -45,22 +46,20 @@
                     <label for="mail">Mail</label>
                 </div>
 
-                <div class="contraseña">
-                    <input type="password" id="contraseña">
-                    <label for="contraseña">Contraseña</label>
-                </div>
-
                 <div class="celular">
                     <input type="text" id="celular">
                     <label for="celular">Num Celular</label>
                 </div>
             </div>
+            
 
             <input type="submit" value="Iniciar" id="iniciarBtn">
+            </form>
+            
 
             <div id="overlay" class="hidden fondoGris"></div>
 
-            <div id="loader" class="hidden">
+            <div id="loader" class="hidden oscuro">
                 <div class="loader"></div>
             </div>
 
